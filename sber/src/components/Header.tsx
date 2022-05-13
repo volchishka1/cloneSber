@@ -1,6 +1,7 @@
 import React from "react";
 import {Image, Linking, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useAuth} from "../useAuth";
+import {colors} from "../../constants";
 
 export const Header = () => {
     const {user} = useAuth()
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
         marginBottom: 6
     },
     returnPhrase: {
-        color: "#8D9699",
+        color: colors.TEXT_GRAY,
 
     },
     imageProfile: {
