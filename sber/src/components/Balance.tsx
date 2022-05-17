@@ -2,13 +2,13 @@ import React from "react";
 import {StyleSheet, Text, View} from "react-native";
 import {colors} from "../../constants";
 
-export const Balance = () => {
-    const card = {balance: 92510}
+export const Balance = ({cards}: any) => {
+    const balance = cards.reduce((acc: any, card: any) => acc + card.balance, 0)
 
     return (
         <View style={{ marginBottom: 20}}>
             <Text style={styles.balanceName}>Balance</Text>
-            <Text style={styles.balanceValue}>${card.balance}</Text>
+            <Text style={styles.balanceValue}>${balance}</Text>
         </View>
     );
 }

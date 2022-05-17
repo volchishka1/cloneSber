@@ -3,34 +3,13 @@ import {Image, StyleSheet, Text, View} from "react-native";
 import {colors} from "../../constants";
 import {useAuth} from "../useAuth";
 
-
-const cards = [
-    {
-        id: 'wewrwr',
-        number: "4562 1122 4595 7852",
-        type: "Mastercard",
-        balance: 92510
-    },
-    {
-        id: 'wewrw12312r',
-        number: "4562 2211 4595 7852",
-        type: "Visa",
-        balance: 12510
-    },
-    {
-        id: 'wewrwdsdf12312r',
-        number: "4562 4423 4595 7852",
-        type: "Maestro",
-        balance: 22510
-    },
-]
-export const Cards = () => {
-    const {user} = useAuth()
+export const Cards = ({cards}: any) => {
+    const {user} = useAuth();
 
     return (
-        <View style={{marginTop: 50, position: "relative", height: 300, overflow: "hidden"}}>
+        <View style={styles.container}>
             {
-                cards.map((card, index) => (
+                cards.map((card: any, index: any) => (
                     <View
                         key={card.id}
                         style={{
@@ -56,17 +35,12 @@ export const Cards = () => {
                         <Text style={styles.cardNumber}>{card.number}</Text>
                         <View style={styles.flexDefault}>
                             <View>
-                                <Text style={{
-                                    color: "white",
-                                    textTransform: "uppercase",
-                                    fontSize: 10,
-                                    marginBottom: 6
-                                }}>Card holder</Text>
+                                <Text style={styles.cardHolder}>Card holder</Text>
                                 <Text style={{
                                     color: "white",
                                     textTransform: "uppercase",
                                     fontSize: 14
-                                }}>{user.name}</Text>
+                                }}>{user.email}</Text>
                             </View>
                             <View>
                                 <Image style={styles.card}
@@ -82,20 +56,32 @@ export const Cards = () => {
 
 
 const styles = StyleSheet.create({
+    container: {
+        marginTop: 35,
+        position: "relative",
+        height: 275,
+        overflow: "hidden"
+    },
     flexDefault: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center"
     },
     boxShadow: {
-      shadowColor: "#000",
-      shadowOffset: {
-          width: 0,
-          height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    cardHolder: {
+        color: "white",
+        textTransform: "uppercase",
+        fontSize: 10,
+        marginBottom: 6
     },
     cardContainer: {
         backgroundColor: colors.ACCENT,
@@ -107,8 +93,8 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     card: {
-        width: 93,
-        height: 69,
+        width: 84,
+        height: 56,
     },
     cardNumber: {
         color: "white",

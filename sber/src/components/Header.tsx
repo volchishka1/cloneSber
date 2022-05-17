@@ -9,7 +9,7 @@ export const Header = () => {
     return (
         <View style={styles.container}>
             <View>
-                <Text style={styles.user}>Hi {user?.name}</Text>
+                <Text style={styles.user}>Hi {user?.email}</Text>
                 <Text style={styles.returnPhrase}>Welcome back</Text>
             </View>
             <View>
